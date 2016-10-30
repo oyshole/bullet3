@@ -1,6 +1,6 @@
 
 	solution "0_Bullet3Solution"
-
+  platforms {"x32","x64"}
 	local osversion = os.getversion()
 	print(string.format(" %d.%d.%d (%s)",
    		osversion.majorversion, osversion.minorversion, osversion.revision,
@@ -152,10 +152,10 @@ end
 	
 	configurations {"Release", "Debug"}
 	configuration "Release"
-		flags { "Optimize", "EnableSSE2","StaticRuntime", "NoMinimalRebuild", "FloatFast"}
+		flags { "Optimize", "EnableSSE2", "NoMinimalRebuild", "FloatFast"}
 	configuration "Debug"
 		defines {"_DEBUG=1"}
-		flags { "Symbols", "StaticRuntime" , "NoMinimalRebuild", "NoEditAndContinue" ,"FloatFast"}
+		flags { "Symbols", "NoMinimalRebuild", "NoEditAndContinue" ,"FloatFast"}
 
 	if os.is("Linux") or os.is("macosx") then
 		if os.is64bit() then
@@ -213,7 +213,7 @@ end
 --printf ( _OPTIONS["targetdir"] )
 
 	targetdir( _OPTIONS["targetdir"] or "../bin" )
-	location("./" .. act .. postfix)
+	--location("./" .. act .. postfix)
 
 	if not _OPTIONS["python_include_dir"] then
 			_OPTIONS["python_include_dir"] = default_python_include_dir
