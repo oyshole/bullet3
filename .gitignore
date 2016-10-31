@@ -1,0 +1,6 @@
+*.vcxproj
+*.filters
+*.sln
+bin/
+build3/obj
+
